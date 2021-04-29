@@ -1,0 +1,38 @@
+.App {
+  font-family: sans-serif;
+
+}
+
+.background-img{
+  height: auto;
+}
+
+.header-container{
+  text-align: center;
+}
+
+.header-tabs{
+  margin: 30px;
+  color:white;
+
+}
+
+.header-top{
+
+  padding: 10px 10%;
+  text-align: left;
+  color: white;
+  position:absolute;
+
+}
+
+.bottom-container{
+  background-color: skyblue;
+  margin: 0;
+  padding: 20px 0px;
+  text-align: center;
+}
+
+img{
+  width: 100%;
+}
