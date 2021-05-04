@@ -8,7 +8,7 @@ function Header() {
           <i class="fab fa-rocketchat"></i> Harmony{" "}
         </h2>
         <div className="header-container">
-        <a href="#" className="header-tabs">
+        <a href="./why-harmony.html" className="header-tabs">
           Why Harmony?
         </a>
         <a href="#" className="header-tabs">
