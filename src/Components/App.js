@@ -6,6 +6,7 @@ import Post from "./Post";
 
 export default function App() {
   const [text, setText] = useState([]);
+  
   function addText(newText) {
     setText(prevText => {
       return [...prevText, newText]
@@ -13,10 +14,10 @@ export default function App() {
   }
   return (
     <div className="App">
-      {/* <Header /> */}
+      <Header />
       {/* <img className="background-img" src="pics/art3.jpg" alt=":p"/> */}
 
-      {text.map(textItem => {return (<Post display={textItem}/>)})}
+      {text.map(textItem => {return (<Post username={textItem.username} comment={textItem.comment}/>)})}
       <PostEntry addNew={addText} /> 
       <Footer />
     </div>

@@ -1,38 +1,51 @@
 .App {
   font-family: sans-serif;
-
-}
-
-.background-img{
-  height: auto;
-}
-
-.header-container{
   text-align: center;
 }
 
-.header-tabs{
-  margin: 30px;
-  color:white;
-
-}
-
-.header-top{
-
-  padding: 10px 10%;
-  text-align: left;
-  color: white;
-  position:absolute;
-
-}
-
-.bottom-container{
+.bottom-container {
   background-color: skyblue;
   margin: 0;
   padding: 20px 0px;
   text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 0;
 }
 
-img{
+.background-img {
+  height: auto;
+}
+
+.header-container {
+  text-align: center;
+}
+
+.header-tabs {
+  margin: 30px;
+  color: white;
+}
+
+.header-top {
+  padding: 10px 10%;
+  text-align: left;
+  background-color: skyblue;
+  /* position:absolute; */
+}
+
+.post-entry {
+  position: absolute;
+  bottom: 10%;
+  width: 100%;
+}
+
+.post-style {
+  text-align: left;
+  padding: 10px 10%; /*  top&bot left&right */
+  margin-bottom: 10px;
+
+}
+
+img {
   width: 100%;
 }

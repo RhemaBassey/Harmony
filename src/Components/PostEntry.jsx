@@ -1,46 +1,40 @@
 // Post Entry consists of the text input and submit button
-import React, {useState} from "react"
+import React, { useState } from "react";
 
+function PostEntry(props) {
+  const myUserName = "Rhema";
+  const [post, setPost] = useState({
+    username: myUserName,
+    comment: "",
+  });
 
-function PostEntry(props){
-    const [isExpanded, setExpanded] = useState(false)
-    const [post, setPost] = useState()
+  function handleChange(event) {
+    const { value } = event.target;
+    setPost({
+      username: myUserName,
+      comment: value,
+    });
+    console.log(post.comment);
+  }
 
-    
-    // Expands the text area field upon click 
-    function handleTextAreaClick(){
-        setExpanded(true);
-    }
+  // Posts stuff
+  function handleSubmit(event) {
+    props.addNew(post); // 'exports' the value of post to app.jsx, using prop addNew
+    setPost({
+      username: myUserName,
+      comment: "",
+    });
+    event.preventDefault();
+  }
 
-    function handleChange(event){
-        const {value} = event.target
-        setPost(value)
-    }
-
-    // Posts stuff
-    function handleButtonClick(event){
-        console.log(post)
-        props.addNew(post) // 'exports' the value of post to app.jsx, using prop addNew
-        event.preventDefault();
-        setPost("")
-    }
-
-    return(
-        <div>
-            <textarea
-                placeholder="Enter Message"
-                rows={isExpanded ? "2" : "1"}
-                onClick = {handleTextAreaClick}
-                onChange = {handleChange}
-                value = {post}
-            />
-
-            <button onClick={handleButtonClick}>
-                Submit
-            </button>
-
-        </div>
-    )
+  return (
+    <div className="post-entry">
+      <form onSubmit={handleSubmit}>
+        <input placeholder="Enter Message" onChange={handleChange} value={post.comment} />
+        {/* By setting type='submit', and putting the 'onClick' function in the form tag, I can post my text using the 'enter' key */}
+        <button type="submit" class="btn btn-dark">submit</button>      </form>
+    </div>
+  );
 }
 
-export default PostEntry
+export default PostEntry;
