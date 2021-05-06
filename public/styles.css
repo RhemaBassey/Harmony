@@ -46,6 +46,20 @@
 
 }
 
+.time {
+  color: grey;
+  font-size: 0.9rem;
+}
+
+.anchor {
+  text-decoration: none;
+  color: skyblue;
+}
+
+.anchor:hover{
+  color: teal;
+}
+
 img {
   width: 100%;
 }
