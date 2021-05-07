@@ -2,13 +2,13 @@ import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
 
-import Main from "./Main"
+import Main from "./Main";
 
 export default function App() {
   return (
-    <div className="App">
+    <div className= "App">
       <Header />
-        <Main />
+      <Main />
       <Footer />
     </div>
   );

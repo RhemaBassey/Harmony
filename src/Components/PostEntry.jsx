@@ -10,7 +10,6 @@ function PostEntry(props) {
 
   const myUserName = "Rhema";
   const [post, setPost] = useState({
-    username: myUserName,
     comment: "",
     time: "",
   });
@@ -18,7 +17,6 @@ function PostEntry(props) {
   function handleChange(event) {
     const { value } = event.target;
     setPost({
-      username: myUserName,
       comment: value,
       time: time,
     });
@@ -29,7 +27,6 @@ function PostEntry(props) {
   function handleSubmit(event) {
     props.addNew(post); // 'exports' the value of post to app.jsx, using prop addNew
     setPost({
-      username: myUserName,
       comment: "",
       time: "",
     });

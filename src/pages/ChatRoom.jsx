@@ -13,18 +13,22 @@ export default function ChatRoom() {
 
   return (
     <div className="App">
-
       {/* <img className="background-img" src="pics/art3.jpg" alt=":p"/> */}
 
-      {text.map((textItem) => {
-        return (
-          <Post
-            username={textItem.username}
-            comment={textItem.comment}
-            time={textItem.time}
-          />
-        );
-      })}
+      <div className="middle">
+        <div className="middle-center">
+          {text.map((textItem) => {
+            return (
+              <Post
+                username={textItem.username}
+                comment={textItem.comment}
+                time={textItem.time}
+              />
+            );
+          })}
+        </div>
+      </div>
+
       <PostEntry addNew={addText} />
     </div>
   );

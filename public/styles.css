@@ -33,9 +33,29 @@
   /* position:absolute; */
 }
 
+.middle {
+  background: silver;
+  top: 150px;
+  bottom: 150px;
+  position: absolute;
+  width: 100%
+}
+
+
+.middle-center {
+  background: #999;
+  position: absolute;
+  left: 18%;
+  top: 0;
+  float: right;
+  width: 60%;
+  height: 100%;
+  overflow-y: scroll;
+}
+
 .post-entry {
   position: absolute;
-  bottom: 10%;
+  bottom: 15%;
   width: 100%;
 }
 
@@ -63,3 +83,13 @@
 img {
   width: 100%;
 }
+
+html, body {
+    margin: 0; padding:0; border: 0;
+    overflow: hidden
+} 
+/* #header, #middle, #footer {
+    position: absolute;
+    width: 100%
+} */
+
