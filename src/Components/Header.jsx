@@ -1,13 +1,15 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 function Header() {
   return (
     <div className="header-top">
-
-        <h2>
+      <h2>
+        <Link to="/"  className="anchor">
           <i class="fab fa-rocketchat"></i> Harmony{" "}
-        </h2>
-        <div className="header-container">
+        </Link>
+      </h2>
+      <div className="header-container">
         <a href="./why-harmony.html" className="header-tabs">
           Why Harmony?
         </a>
