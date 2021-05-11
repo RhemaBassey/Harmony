@@ -17,6 +17,10 @@
   height: auto;
 }
 
+.btn{
+  margin: 5px;
+}
+
 .header-container {
   text-align: center;
 }
@@ -88,6 +92,7 @@ html, body {
     margin: 0; padding:0; border: 0;
     overflow: hidden
 } 
+
 /* #header, #middle, #footer {
     position: absolute;
     width: 100%
