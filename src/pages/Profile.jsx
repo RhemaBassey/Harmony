@@ -1,17 +1,20 @@
 import React, { useState } from "react";
 import { forEachChild } from "typescript";
+import {DropDownItem, DropDownItemSelected} from "../Components/DropDownItem"
+
 const username = "Rhema";
 var prevEdit = {};
 let ageList = []
+let genderList = ["male","female","trans","non-binary", "prefer not to say"]
 
 
 // set an array/variable to push edits into, so you can revert to the last one when 'cancel' is pressed
 export default function Profile() {
   // 
   for(var i=13; i<101; i++){
-    ageList.push(i)
+    ageList.push(String(i))
   }
-  ageList.push("100+")
+
 
   
   const [editMode, setEditMode] = useState(false);
@@ -87,24 +90,20 @@ export default function Profile() {
             </form>
             <form>
             <label>Gender: </label>
-            <select name="gender" onChange={handleChange}>
-                  {details.gender ==="" ? <option value="-" selected>--Gender--</option>: <option value="-" selected>{details.gender}</option>}
-                  <option value="Male">Male</option>
-                  <option value="Female">Female</option>
-                  <option value="Non-Binary">Non Binary</option>
-                  <option value="Trans"> Trans </option>
-                  <option value="Prefer not to say">Prefer not to say</option>
-                </select>
+              <select name="gender" onChange={handleChange}>
+              <option disabled selected>--Gender--</option>
+                {genderList.map((item) => {
+                  return(<DropDownItem detailValue={details.gender} value={item}/>)
+                })}
+              </select>
             </form>
             <form>
             <label>Age: </label>
             <select name="age" onChange={handleChange}>
-               {details.age ==="" ? <option value="-" selected>--Age--</option>: <option value="-" selected>{details.age}</option>}
-
-                <option value="Prefer not to say"> Prefer not to say</option>
-               {ageList.map((item) => {
-                 return(<option value={item}>{item}</option>)
-               })}
+            <option disabled selected>--Age--</option>
+                {ageList.map((item) => {
+                  return(<DropDownItem detailValue={details.age} value={item}/>)
+                })}
             </select>
             </form>
             
