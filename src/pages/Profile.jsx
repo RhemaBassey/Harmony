@@ -1,20 +1,33 @@
 import React, { useState } from "react";
 import { forEachChild } from "typescript";
 import {DropDownItem, DropDownItemSelected} from "../Components/DropDownItem"
+import Card from "../Components/Card"
 
 const username = "Rhema";
 var prevEdit = {};
 let ageList = []
 let genderList = ["male","female","trans","non-binary", "prefer not to say"]
+let generated = false //boolean for whether items in the age drop down menu have been generated
 
 
 // set an array/variable to push edits into, so you can revert to the last one when 'cancel' is pressed
 export default function Profile() {
-  // 
-  for(var i=13; i<101; i++){
-    ageList.push(String(i))
-  }
+  var d = new Date()
+  var year = d.getFullYear();
+  var month = d.getMonth();
+  var date = d.getDate();
 
+  month < 10 && (month = "0" + month)
+  date < 10 && (date = "0" + month)
+
+  console.log(year +"-"+ month +"-"+ date)
+  // 
+
+{/* <form action="/action_page.php">
+  <label for="birthday">Birthday:</label>
+  <input type="date" id="birthday" name="birthday">
+  <input type="submit">
+</form> */}
 
   
   const [editMode, setEditMode] = useState(false);
@@ -24,8 +37,11 @@ export default function Profile() {
     twitterHandle: "",
     location:"",
     gender:"",
-    age:""
+    age:"",
+    birthday:""
   });
+
+let profileDetails = [details.aboutMe, "Email: " + details.emailAddress, "Twitter: " + details.twitterHandle, "Location: " + details.location, "Gender: " + details.gender, "Birthday: " + details.birthday]
 
 
   function editDetails(event) {
@@ -55,6 +71,7 @@ export default function Profile() {
     setDetails(prevEdit);
     setEditMode(false);
     e.preventDefault();
+
   }
 
   function generateList(){
@@ -65,30 +82,32 @@ export default function Profile() {
     <div>
       <h1> {username} </h1>
       <form>
-        <p> About Me:</p>
         {editMode ? (
           <div>
-            <textarea
+          <p>
+                      <textarea
               name="aboutMe"
               placeholder="About Me..."
               onChange={handleChange}
               value={details.aboutMe}
             />
+          </p>
+
             <p>
 
-            <form>
+            <p>            <form>
               <label>Email: </label>
               <input name="emailAddress" value={details.emailAddress} onChange={handleChange}/>
-            </form>
-            <form>
+            </form></p>
+            <p>            <form>
               <label>Twitter: </label>
               <input name="twitterHandle" value={details.twitterHandle} onChange={handleChange}/>
-            </form>
-            <form>
+            </form></p>
+            <p>         <form>
               <label>Location: </label>
               <input name="location" value={details.location} onChange={handleChange}/>
-            </form>
-            <form>
+            </form></p>
+            <p><form>
             <label>Gender: </label>
               <select name="gender" onChange={handleChange}>
               <option disabled selected>--Gender--</option>
@@ -96,16 +115,22 @@ export default function Profile() {
                   return(<DropDownItem detailValue={details.gender} value={item}/>)
                 })}
               </select>
-            </form>
-            <form>
-            <label>Age: </label>
-            <select name="age" onChange={handleChange}>
-            <option disabled selected>--Age--</option>
-                {ageList.map((item) => {
-                  return(<DropDownItem detailValue={details.age} value={item}/>)
-                })}
-            </select>
-            </form>
+            </form></p>
+            <p><form action="/action_page.php">
+  <label for="birthday">Birthday:</label>
+  <input type="date"  name="birthday" value={details.birthday} onChange={handleChange} min="1900-01-01" max= {year+"-"+month+"-"+date}/>
+
+</form></p>
+
+
+
+   
+            
+
+            
+            
+
+            
             
               <button
                 type="submit"
@@ -121,13 +146,27 @@ export default function Profile() {
             </p>
           </div>
         ) : (
-          <div>
-            <p>{details.aboutMe}</p>
-            <p>Email: {details.emailAddress}</p>
-            <p>Twitter: {details.twitterHandle}</p>
-            <p>Location: {details.location}</p>
-            <p>Gender: {details.gender}</p>
-            <p>Age: {details.age}</p>
+          <div >
+
+            
+                  {/* <p> About Me:</p> */}
+            {/* {profileDetails.map((item) => {
+              return(
+                            <Card text={item} style="card-body"/>
+              )
+            })} */}
+            
+            <div className="card">
+  <div className="card-header">
+    <p> About Me: </p>
+    {details.aboutMe}
+  </div>
+</div>
+            <Card title="Email: " text={details.emailAddress} style="card-body"/>
+            <Card title="Twitter: " text={details.twitterHandle} style="card-header"/>
+            <Card title="Location: " text={details.location} style="card-body"/>
+            <Card title="Gender: " text={details.gender} style="card-header"/>
+            <Card title="Birthday: " text={details.birthday + " (yyyy-mm-dd)"} style="card-body"/> 
             <p>
               <button
                 onClick={editDetails}
