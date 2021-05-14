@@ -6,7 +6,7 @@ import Main from "./Main";
 
 export default function App() {
   return (
-    <div className= "App">
+    <div className="App">
       <Header />
       <Main />
       <Footer />

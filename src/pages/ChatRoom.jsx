@@ -33,22 +33,3 @@ export default function ChatRoom() {
     </div>
   );
 }
-
-// Routing in React
-// function App() {
-//   return (
-//     <BrowserRouter>
-//       <Navbar />
-//       <div className="container mt-2" style={{ marginTop: 40 }}>
-//         <Switch>
-//           <Route exact path="/">
-//             <Home />
-//           </Route>
-//           <Route path="/about">
-//             <About />
-//           </Route>
-//         </Switch>
-//       </div>
-//     </BrowserRouter>
-//   );
-// }

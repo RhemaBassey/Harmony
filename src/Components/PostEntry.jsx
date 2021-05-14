@@ -2,10 +2,6 @@
 import React, { useState } from "react";
 
 function PostEntry(props) {
-  //   const d = new Date();
-  //   const hour = d.getHours(); // => 9
-  //   const min = d.getMinutes(); // =>  30
-  //   const sec = d.getSeconds(); // => 51function Post(props)
   const time = new Date().toLocaleTimeString();
 
   const myUserName = "Rhema";
@@ -41,14 +37,14 @@ function PostEntry(props) {
           onChange={handleChange}
           value={post.comment}
         />
-        {/* By setting type='submit', and putting the 'onClick' function in the form tag, I can post my text using the 'enter' key */}
+        {/* Setting type='submit', and putting the 'onClick' function in the form tag, enables posting text using the 'enter' key */}
         <button
           disabled={post.comment.length < 1}
           type="submit"
           class="btn btn-dark"
         >
           submit
-        </button>{" "}
+        </button>
       </form>
     </div>
   );

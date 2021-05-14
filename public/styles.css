@@ -1,6 +1,19 @@
+.anchor {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+.anchor:hover {
+  color: teal;
+}
+
 .App {
   font-family: sans-serif;
   text-align: center;
+}
+
+.background-img {
+  height: auto;
 }
 
 .bottom-container {
@@ -13,11 +26,7 @@
   bottom: 0;
 }
 
-.background-img {
-  height: auto;
-}
-
-.btn{
+.btn {
   margin: 5px;
 }
 
@@ -42,9 +51,8 @@
   top: 150px;
   bottom: 150px;
   position: absolute;
-  width: 100%
+  width: 100%;
 }
-
 
 .middle-center {
   background: #999;
@@ -67,7 +75,6 @@
   text-align: left;
   padding: 10px 10%; /*  top&bot left&right */
   margin-bottom: 10px;
-
 }
 
 .time {
@@ -75,26 +82,19 @@
   font-size: 0.9rem;
 }
 
-.anchor {
-  text-decoration: none;
-  color: blueviolet;
-}
-
-.anchor:hover{
-  color: teal;
-}
-
 img {
   width: 100%;
 }
 
-html, body {
-    margin: 0; padding:0; border: 0;
-    overflow: hidden
-} 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  overflow: hidden;
+}
 
 /* #header, #middle, #footer {
     position: absolute;
     width: 100%
 } */
-
